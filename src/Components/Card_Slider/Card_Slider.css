@@ -1,0 +1,28 @@
+/* CardSlider.css */
+
+.card-slider-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .card_slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .card_slider img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .card_slider-title {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
