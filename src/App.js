@@ -1,5 +1,8 @@
+
 import './App.css';
 import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from './Components/Navbar/Navbar';
 import Banner from './Components/Banner/Banner';
 import Support_Slider from './Components/Slider/Slider';
@@ -30,19 +33,28 @@ import Book_Printing from './Pages/Book_Printing/Book_Printing';
 function App() {  
   return (
   <>
-  <Home/>
-  {/* <Pricing/> */}
-  {/* <Contact/> */}
-  {/* <Fiction/> */}
-{/* <Book_editing/> */}
-{/* <Audio_Book/> */}
-{/* <Publishing/> */}
-{/* <Book_Marketing/> */}
-{/* <Cover_Design/> */}
-{/* <Video_Book_Trailer/> */}
-{/* <Author_Webite/> */}
-{/* <About/> */}
-{/* <Book_Printing/> */}
+       <BrowserRouter>
+        <Routes>
+    
+ <Route path="/" exact element={<Home/>} />
+        <Route path="/pricing" element={<Pricing/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/fiction" element={<Fiction/>} />
+        <Route path="/book-editing" element={<Book_editing/>} />
+        <Route path="/audio-book" element={<Audio_Book/>} />
+        <Route path="/publishing" element={<Publishing/>} />
+        <Route path="/book-marketing" element={<Book_Marketing/>} />
+        <Route path="/cover-design" element={<Cover_Design/>} />
+        <Route path="/video-book-trailer" element={<Video_Book_Trailer/>} />
+        <Route path="/author-website" element={<Author_Webite/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/book-printing" element={<Book_Printing/>} />
+        </Routes>
+
+
+       
+      </BrowserRouter>
+
   </>
   );
 }
