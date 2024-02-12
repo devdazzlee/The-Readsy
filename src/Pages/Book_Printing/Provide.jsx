@@ -10,9 +10,13 @@ const Provide = ({img, heading, para , button}) => {
       <p class="text-gray-700 text-base">{para}</p>
     </div>
     <div class="px-6 py-4 text-center">
+
+  
+            <Link to={'/contact'}>
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         {button}
       </button>
+            </Link>
     </div>
   </div>
 

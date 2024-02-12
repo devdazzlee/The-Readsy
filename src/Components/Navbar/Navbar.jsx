@@ -1,102 +1,256 @@
-import React from 'react'
-import logo from '../../Images/CompanyLogo.png'
-import { Link } from 'react-router-dom'
-
+import React, { useState, useEffect } from 'react';
+import './Navbar.css'
+import logo from '../../Images/Asset 16 (1).png'
+import { Link } from 'react-router-dom';
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen2, setIsMenuOpen2] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const [scrolling, setScrolling] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleToggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen2(!isMenuOpen2)
+  };
+  const [isOpen, setIsOpen] = useState(false);
+
+
+  // Function to toggle the open/closed state
+  const toggleFAQ = () => {
+    setIsOpen(!isOpen);
+  };
+  const toggleFAQ2 = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <>
-<nav class="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src={logo} class="h-20" alt="Flowbite Logo" />
-       
-    </a>
-    <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-      <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-      <Link  to={'/'}  >
-          <a href="#" class="block py-2 px-3   text-gray-900 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
-        </Link>
-        <Link  to={'/pricing'} >
-          <a href="#" class="block py-2 px-3 text-gray-900  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Pricing</a>
-        </Link>
-        <Link    to={'/book-editing'}   >
-          <a href="#" class="block py-2 px-3 text-gray-900  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Editing</a>
-        </Link>
+    <nav   
+    
+    style={{
+      position: 'fixed',
+      zIndex: '100',
+      backgroundColor: scrolling ? '#10AFD0' : 'white',
+      transition: 'background-color 0.3s ease',
+    }}
 
+    className="bg-white text-black mb-24 px-12 py-2 navbar-fixed">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="text-black font-bold">
+        <img src={logo} className='h-24'  alt="" />
+        </div>
 
+        {/* Mobile Menu */}
+        <div className="lg:hidden">
+          <button onClick={toggleMenu} className="text-black focus:outline-none">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex space-x-4">
+        <Link 
+        style={{
+
+        }}
+        className={`mx-2    font-bold ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`}
+ to={'/'}  >
+          Home
+        </Link>
+        <Link 
+          className={`mx-2    font-bold ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`}
+         
+         to={'/Portfolio'} >
+         Portfolio
+        </Link>
+        <Link          
+        className={`mx-2    font-bold ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`}        
+        to={'/book-editing'}   >
+         Editing
+        </Link>
+        <Link  
+         className={`mx-2    font-bold ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`}
+        to={'/book-marketing'} >
+          Book Marketing 
+        </Link>
+          <div  className={`relative group font-bold  ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`}  onMouseEnter={() => setIsMenuOpen(true)} onMouseLeave={() => setIsMenuOpen(false)}>
+            <a href="/#">Book Writing <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <ul className={`absolute ${isMenuOpen ? 'block' : 'hidden'} bg-gray-800 text-black p-2 space-y-2 z-50	`}>
         
-        <Link    to={'/book-marketing'} >
-          <a href="#" class="block py-2 px-3 text-gray-900  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Book Marketing </a>
-        </Link>
-        <li>
-        <button id="dropdownNavbarLink1" data-dropdown-toggle="dropdownNavbar1" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Book Writing <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-</svg></button>
 
-<div id="dropdownNavbar1" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Children Books</a>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Biography </a>
-                  </li>
-                  <Link  to={'/fiction'}  >
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Fiction</a>
-                  </Link>
-                </ul>
-            </div>
+        <li  style={{"width" :"10rem" , "color" :"white"}} >
+
+        <Link  className='text-white font-bold hover-prop'    to={'/fiction'}  >
+                    Fiction
+                  </Link> 
+        </li>
+        <li  style={{"width" :"10rem"}} >
+
+<Link  className='text-white font-bold hover-prop'   to={'/audio-book'}   >   
+          Children Books
+</Link>
+</li>
+<li  style={{"width" :"10rem"}} >
+
+<Link   className='text-white font-bold hover-prop'  to={'/publishing'}   >
+        Biography
+        </Link> 
         </li>
 
-  <Link  to={'/audio-book'}   >   
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Audio Book</a>
-        </Link>
-        <Link     to={'/publishing'}   >
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Book Publishing</a>
-        </Link>
-        <Link  to={'/contact'} >
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-        </Link >
-        <li>
-        <button id="dropdownNavbarLink2" data-dropdown-toggle="dropdownNavbar2" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">More <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-</svg></button>
 
-<div id="dropdownNavbar2" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                  <Link     to={'/cover-design'} >
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Customized Cover Design </a>
-                  </Link>
-                  <Link   to={'/video-book-trailer'} >
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Video Book Trailers</a>
-                  </Link>
-                  <Link  to={'/author-website'}   >
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Author Website</a>
-                  </Link>
-
-                  <Link   to={'/about'}  >
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About</a>
-                  </Link>
-
-
+            
                   
-                </ul>
-            </div>
-        </li>
+            </ul>
+          </div>
 
-      </ul>
-    </div>
-  </div>
-</nav>
+          <Link  className={`mx-2    font-bold ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`}  to={'/audio-book'}   >   
+         Audio Book
+        </Link>
+        <Link   className={`mx-2    font-bold ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`}   to={'/publishing'}   >
+        Book Publishing
+        </Link>
+        <Link  className={`mx-2    font-bold ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`} to={'/contact'} >
+      Contact
+        </Link >
 
-    </>
-  )
-}
+        <div className={`relative group font-bold  ${scrolling ? 'text-white' : 'text-black'} hover:text-${scrolling ? 'black' : 'sky-500'}`} onMouseEnter={() => setIsMenuOpen2(true)} onMouseLeave={() => setIsMenuOpen2(false)}>
+            <a href="/#">More <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <ul      style={{"position" : "absolute" , "right" :"0px"}} className={` ${isMenuOpen2 ? 'block' : 'hidden'}   bg-gray-800 text-black p-4 space-y-6 z-50 `}>
+            <li  style={{"width" :"10rem"}} >
+            <Link    className='text-white hover-prop'   to={'/cover-design'} >
+                  Customized Cover Design 
+                  </Link>
+            </li>
 
-export default Navbar
+            <li  style={{"width" :"12rem"}} >
+            <Link    className='text-white hover-prop' to={'/video-book-trailer'} >
+                  Video Book Trailers
+                  </Link>
+            </li>
+            <li  style={{"width" :"12rem"}} >
+            <Link   className='text-white hover-prop' to={'/author-website'}   >
+                  Author Website
+                  </Link>
+            </li>
+            <li  style={{"width" :"12rem"}} >
+
+
+            <Link  className='text-white font-bold hover-prop'   to={'/about'}  >
+                   About 
+                  </Link>  
+            </li>                  
+            </ul>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+      {isMenuOpen && (
+        <div className="lg:hidden">
+          <div className="flex flex-col space-y-4">
+          <Link   className='mx-2  text-black 	' to={'/'}  >
+          Home
+        </Link>
+        <Link   className='mx-2 text-black'  to={'/pricing'} >
+         Pricing
+        </Link>
+        <Link    className='mx-2 text-black'   to={'/book-editing'}   >
+         Editing
+        </Link>
+        <Link    className='mx-2 text-black'   to={'/book-marketing'} >
+          Book Marketing 
+        </Link>
+<li  onClick={toggleFAQ} style={{"listStyleType" :"none"}} className='mx-2 text-black'   >Book Writing  <i class="fa fa-caret-down" aria-hidden="true"></i></li>
+    
+{isOpen && (
+  <>
+
+
+ <Link   style={{"background" :"#10AFD0"}}  className='mx-2 text-black' to={'/fiction'}  >
+                    Fiction
+                  </Link>
+                  <Link  style={{"background" :"#10AFD0"}}   className='mx-2 text-black' to={'/audio-book'}   >   
+                  Children Books
+        </Link>
+        <Link   style={{"background" :"#10AFD0"}}   className='mx-2 text-black'   to={'/publishing'}   >
+        Biography
+        </Link>
+
+
+
+  </>
+)}
+
+
+<Link   className='mx-2 text-black' to={'/audio-book'}   >   
+         Audio Book
+        </Link>
+        <Link    className='mx-2 text-black'   to={'/publishing'}   >
+        Book Publishing
+        </Link>
+        <Link   className='mx-2 text-black' to={'/contact'} >
+      Contact
+        </Link >
+        <li onClick={handleToggleDropdown} style={{"listStyleType" :"none"}} className='mx-2 text-black '   >More<i class="fa fa-caret-down" aria-hidden="true"></i></li>
+        {isDropdownOpen && (
+       <>
+
+
+            <Link   style={{"background" :"#10AFD0"}}   className='mx-2 text-black'    to={'/cover-design'} >
+                  Customized Cover Design 
+                  </Link>
+          
+
+      
+            <Link  style={{"background" :"#10AFD0"}}  className='mx-2 text-black'    to={'/video-book-trailer'} >
+                  Video Book Trailers
+                  </Link>
+            
+          
+            <Link  style={{"background" :"#10AFD0"}}  className='mx-2 text-black'   to={'/author-website'}   >
+                  Author Website
+                  </Link>
+     
+        
+
+
+            <Link  style={{"background" :"#10AFD0"}}  className='mx-2 text-black'    to={'/about'}  >
+                   About 
+                  </Link>  
+           
+      </>
+      )}
+
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;

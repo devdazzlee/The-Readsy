@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Image_Text_Comp2 = ({head1 ,head2, para, button ,img}) => {
   return (
@@ -11,9 +12,14 @@ const Image_Text_Comp2 = ({head1 ,head2, para, button ,img}) => {
           <p className='text-start '>
             {para}
           </p>
+
+          <Link to={'/contact'}>
+            
+  
           <button style={{ background: '#000000' }} className="my-4 capatiliz w-full md:w-auto text-white font-bold py-4 px-8  rounded">
             {button}
             </button>   
+            </Link>
 
 
         </div>

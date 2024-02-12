@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Banner.css';
 // import '../../Components/Animation.css';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 const Banner = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -46,7 +46,7 @@ const Banner = () => {
 
     try {
       // Make API call using Axios
-      const response = await axios.post('https://thankful-teal-octopus.cyclic.app/api/messages', formData);
+      const response = await axios.post('https://agreeable-apron-bass.cyclic.app/api/messages', formData);
       console.log('API response:', response.data);
 
       // Handle success (optional)
@@ -67,7 +67,7 @@ const Banner = () => {
 
 
   return (
-    <div style={{ paddingTop : "40px" }} className="main-banner h-auto">
+    <div style={{ paddingTop : "100px" }} className="main-banner h-auto">
       <div className="w-full container mx-auto md:px-6">
         <div className="flex flex-col md:flex-row justify-between py-6  animation-from-left">
 
@@ -77,18 +77,22 @@ const Banner = () => {
     Best Professional Book <br class="md:hidden"/> Writing Services
 </h1>
 
-            <p className="text-xl mb-6 text-white dark:text-neutral-300">
+            <p className="text-xl mb-6 text-white">
             Get your book written by New York Times best seller book writer.
             </p>
               
-            {/* <Link to={'/Contact-us'}> */}
-              <button style={{ background: '#10AFD0' }} className="w-full mr-4 md:w-auto text-white font-bold py-4 px-4  rounded mb-4 md:mr-2">
+            <Link to={'/contact'}>
+              <button style={{ background: '#10AFD0' }} className="w-full mr-4 md:w-auto text-white font-bold py-3 px-3  rounded mb-4 md:mr-2">
               Consult an Expert
               </button>
-            {/* </Link> */}
-            <button style={{ background: '#10AFD0' }} className="w-full md:w-auto text-white font-bold py-4 px-4  rounded">
+            </Link>
+            <Link to={'/contact'}>
+
+
+            <button style={{ background: '#10AFD0' }} className="w-full md:w-auto text-white font-bold py-3 px-3  rounded">
             Get a Quote
             </button>
+            </Link>
           </div>
 
           <div style={{background: '#10AFD0' }} className='mt-4 fade-up-element w-full md:w-1/3 pt-4 md:ml-6 rounded-2xl'>
@@ -99,12 +103,12 @@ const Banner = () => {
                 
 
 
-                <p className="w-70 m-auto text-black dark:text-neutral-300">
+                <p className="w-70 m-auto text-black">
                 To Schedule a consultation please send us your details or call now
                 </p>
 
 
-                <span className='font-bold m-auto mb-6' >+1-312-625-1056</span>
+                <span className='font-bold m-auto mb-6' >+1 737-222-7373</span>
               </div>
 
               <div className="relative mb-6" data-te-input-wrapper-init>

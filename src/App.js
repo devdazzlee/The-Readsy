@@ -30,30 +30,165 @@ import Video_Book_Trailer from './Pages/Video_Book_Trailer/Video_Book_Trailer';
 import Author_Webite from './Pages/Author_Website/Author_Website';
 import About from './Pages/About/About';
 import Book_Printing from './Pages/Book_Printing/Book_Printing';
+import ScrollToTop from './Components/ScroolTop/ScrollTop';
+import Privacy_policy from './Pages/privacy-policy/privacy-policy';
+import Terms_and_conditions from './Pages/terms-and-conditions/terms-and-conditions';
+import Portfolio from './Pages/Portfolio/Portfolio';
+
 function App() {  
   return (
   <>
-       <BrowserRouter>
-        <Routes>
-    
- <Route path="/" exact element={<Home/>} />
-        <Route path="/pricing" element={<Pricing/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="/fiction" element={<Fiction/>} />
-        <Route path="/book-editing" element={<Book_editing/>} />
-        <Route path="/audio-book" element={<Audio_Book/>} />
-        <Route path="/publishing" element={<Publishing/>} />
-        <Route path="/book-marketing" element={<Book_Marketing/>} />
-        <Route path="/cover-design" element={<Cover_Design/>} />
-        <Route path="/video-book-trailer" element={<Video_Book_Trailer/>} />
-        <Route path="/author-website" element={<Author_Webite/>} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/book-printing" element={<Book_Printing/>} />
-        </Routes>
+      <BrowserRouter>
+  <Routes>
+    <Route
+      path={"/"}
+      element={
+        <>
+          <ScrollToTop />
+          <Home />
+        </>
+      }
+    />
+    <Route
+      path={"/Portfolio"}
+      element={
+        <>
+          <ScrollToTop />
+          <Portfolio />
+        </>
+      }
+    />
+    <Route
+      path={"/pricing"}
+      element={
+        <>
+          <ScrollToTop />
+          <Pricing />
+        </>
+      }
+    />
+    <Route
+      path={"/contact"}
+      element={
+        <>
+          <ScrollToTop />
+          <Contact />
+        </>
+      }
+    />
+    <Route
+      path={"/fiction"}
+      element={
+        <>
+          <ScrollToTop />
+          <Fiction />
+        </>
+      }
+    />
+    <Route
+      path={"/book-editing"}
+      element={
+        <>
+          <ScrollToTop />
+          <Book_editing />
+        </>
+      }
+    />
+    <Route
+      path={"/audio-book"}
+      element={
+        <>
+          <ScrollToTop />
+          <Audio_Book />
+        </>
+      }
+    />
+    <Route
+      path={"/publishing"}
+      element={
+        <>
+          <ScrollToTop />
+          <Publishing />
+        </>
+      }
+    />
+    <Route
+      path={"/book-marketing"}
+      element={
+        <>
+          <ScrollToTop />
+          <Book_Marketing />
+        </>
+      }
+    />
+    <Route
+      path={"/cover-design"}
+      element={
+        <>
+          <ScrollToTop />
+          <Cover_Design />
+        </>
+      }
+    />
+    <Route
+      path={"/video-book-trailer"}
+      element={
+        <>
+          <ScrollToTop />
+          <Video_Book_Trailer />
+        </>
+      }
+    />
+    <Route
+      path={"/author-website"}
+      element={
+        <>
+          <ScrollToTop />
+          <Author_Webite />
+        </>
+      }
+    />
+    <Route
+      path={"/about"}
+      element={
+        <>
+          <ScrollToTop />
+          <About />
+        </>
+      }
+    />
+    <Route
+      path={"/book-printing"}
+      element={
+        <>
+          <ScrollToTop />
+          <Book_Printing />
+        </>
+      }
+    />
 
+<Route
+      path={"/Privacy-policy"}
+      element={
+        <>
+          <ScrollToTop />
+          <Privacy_policy />
+        </>
+      }
+    />
 
-       
-      </BrowserRouter>
+<Route
+      path={"/Terms-Condition"}
+      element={
+        <>
+          <ScrollToTop />
+          <Terms_and_conditions />
+        </>
+      }
+    />
+  </Routes>
+</BrowserRouter>
+
 
   </>
   );

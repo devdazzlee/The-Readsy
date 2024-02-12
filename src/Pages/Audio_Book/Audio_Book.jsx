@@ -79,8 +79,8 @@ const Audio_Book = () => {
 <div  className='fiction-image w-10/12 	m-auto' >
 
 <Image_Text_Reusable
-title="Do You Need Audiobook"
-title2="Narrators For Hire?"
+title="Do You Need Audiobook Narrators?"
+title2=""
 description={"If you’ve written a book you most certainly need a narrator. At BWS we have the industry’s best narrators on board with us to fulfill all your requirements. Whether you need someone with a dark gloomy voice or a young cheerful one, our voice artists are capable of producing these sounds and tempo based on the genre of your book. So click below and book our narrator for yourself."}
 button={"Consult Writer?"}
 image={"https://www.bookwritingfounders.com/img/fiction/service-inner1.jpg"}
@@ -114,8 +114,7 @@ image={"https://www.bookwritingfounders.com/img/fiction/service-inner3.jpg  "}
 <div  className='fiction-image w-10/12 	m-auto' >
 
 <Image_Text_Reusable2
-title="Worried About The Cost"
-title2="For An Audiobook?"
+title="Worried About The Cost For An Audiobook?"
 description={"Don’t be, here we make sure that the budget is reasonable enough to not constraint the pockets of the author and at the same time they can avail the max types of services we offer. We also provide marketing services with a cut which covers the extra cost the author might have to bear otherwise. We’re flexible, reliable, and trustworthy because we want you to succeed. In your success lies our success."}
 button={"Consult Writer?"}
 image={"https://www.bookwritingfounders.com/img/fiction/service-inner4.jpg"}

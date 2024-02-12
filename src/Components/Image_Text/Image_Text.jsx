@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Image_Card = () => {
   useEffect(() => {
@@ -18,13 +19,13 @@ const Image_Card = () => {
     };
   }, []);
   return (
-    <div className='ImageCard py-10 m-auto w-9/12	'>
+    <div className='ImageCard py-2 m-auto w-full		'>
       <div className="flex flex-wrap animation-from-left">
         
         <div className="   md:px-0 w-full m-auto md:w-1/2">
         <h2 className="mb-6 text-4xl text-black font-bold">
-              <span className='mb-6'> </span> <br /> Are Here To Help You!</h2>
-            <p className="w-auto mb-6 md:w-3/4 w-full	 text-black dark:text-neutral-300">
+              <span className='mb-6'> </span> <br />We Are Here To Help You!</h2>
+            <p className="w-auto mb-6 md:w-3/4 w-full	 text-black">
             We believe that every story is worth sharing. Our book writer for hire put effort into executing your idea to perfection. Nothing can be accomplished without hard work and dedication. Our team has these attributes to create an exciting product. To shape words into a story, we are going to need the appropriate information. We refer our manuscript writing project brief as the first stepping stone towards your success. Our bookwriting services embed the true essence of our words in the right manner. We assure our clients that quality will never be compromised.
 
 
@@ -51,10 +52,14 @@ const Image_Card = () => {
               <li   className='mb-2' ><i  style={{"color" : "#10AED0"}} class="fa fa-check-circle mr-2" aria-hidden="true"></i> Book Marketing</li>
             </ul>
            </div>
+           <Link to={'/contact'}>
+            
+            
            <button style={{ background: '#10AFD0' }} className="w-full md:w-auto text-white font-bold py-4 px-2  rounded">
            LOOKING FOR A Book WRITER
 
             </button>
+                    </Link>
 
         </div>
         <div className=" md:w-2/5	md:ml-20 flex flex-col h-full	 mb-4 md:mb-0">

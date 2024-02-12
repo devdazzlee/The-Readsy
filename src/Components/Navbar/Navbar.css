@@ -1,3 +1,7 @@
-.Hiddenbar{
-  
+.navbar-fixed{
+   width: 100%;
+   margin-bottom: 400px;
+}
+.hover-prop:hover{
+   color: #10AFD0;
 }
