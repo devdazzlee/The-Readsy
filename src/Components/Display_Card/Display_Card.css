@@ -24,6 +24,7 @@
   @media (max-width: 768px) {
     /* Apply different styles for small viewports */
     .Offer-card {
+      margin-right: 0px;
       margin-bottom: 20px;
       position: static;
       width: 100vw; /* Make the card full width on small screens */

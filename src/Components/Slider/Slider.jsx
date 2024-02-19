@@ -15,9 +15,13 @@ const Support_Slider = ({img1,img2,img3,img4}) => {
       <div className="w-44 mx-auto mb-4 sm:w-56 sm:mb-0">
         <img src={img3} alt="partner-logo" />
       </div>
-      <div className="w-12 mx-auto sm:w-24">
+
+      <div className="w-36 mx-auto mb-4 sm:w-40 sm:mb-0 ">
         <img src={img4} alt="partner-logo" />
       </div>
+      {/* <div className="w-12 mx-auto sm:w-44">
+        <img src={img4} alt="partner-logo" />
+      </div> */}
     </div>
   );
 }

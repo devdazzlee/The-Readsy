@@ -22,7 +22,7 @@ const Image_Card = () => {
     <div className='ImageCard py-2 m-auto w-full		'>
       <div className="flex flex-wrap animation-from-left">
         
-        <div className="   md:px-0 w-full m-auto md:w-1/2">
+        <div className="md:px-0 w-full m-auto md:w-1/2  mx-12">
         <h2 className="mb-6 text-4xl text-black font-bold">
               <span className='mb-6'> </span> <br />We Are Here To Help You!</h2>
             <p className="w-auto mb-6 md:w-3/4 w-full	 text-black">
@@ -62,7 +62,9 @@ const Image_Card = () => {
                     </Link>
 
         </div>
-        <div className=" md:w-2/5	md:ml-20 flex flex-col h-full	 mb-4 md:mb-0">
+        <div 
+        style={{"margin" :"auto"}}
+        className=" md:w-2/5	 ml-0 md:ml-20 flex flex-col h-full	 mb-4 md:mb-0">
         {/* <img className='w-full md:w-11/12' src={'https://www.bookwritingfounders.com/img/home/section3/man-with-laptop.jpg'} alt="Testimonial Image" /> */}
         <img className=' mt-16 w-full md:w-11/12  rounded-lg' src={'https://www.bookwritingfounders.com/img/home/section3/writing-girl.jpg'} alt="Testimonial Image" />
 
