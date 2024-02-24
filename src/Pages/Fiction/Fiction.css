@@ -1,3 +1,5 @@
+
+
 .fiction-image{
     background-image: url('https://www.bookwritingfounders.com/img/fiction/service1.jpg');
     background-repeat: no-repeat;
@@ -17,5 +19,18 @@
     background-size: cover;
 }
 
+@media only screen and (max-width: 767px) {
+  
+    .fiction-image{
+        background-image: none;
+   background-color:#1C4340;
+   z-index: 1;
+    }
+    .fiction-image2{
+        background-image: none;
+        background-color: #1C4340; 
+    }
 
+  }
+  
 
