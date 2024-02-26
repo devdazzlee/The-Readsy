@@ -14,7 +14,7 @@ const ThreeSidedSec = ({ buttonData,buttonData2,  imageData }) => {
         ))}
       </div>
 
-      <div>
+      <div   className='md:w-auto   w-64' >
         <img src={imageData.src} alt={imageData.alt} />
       </div>
 

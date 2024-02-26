@@ -202,12 +202,11 @@ useEffect(() => {
             </div>
             <div className="relative mb-6" data-te-input-wrapper-init>
               <input
-                style={{ "width": "24rem" }}
                 type="text"
                 id="name"
                 autoComplete="given-name"
                 placeholder="Full Name"
-                className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
+                className= "md:w-96 mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
@@ -219,7 +218,7 @@ useEffect(() => {
                 id="email"
                 autoComplete="email"
                 placeholder="Email Address"
-                className="mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
+                className="md:w-96  mb-2 w-full rounded-md border border-gray-400 py-2 pl-2 pr-4 shadow-md dark:text-gray-300 sm:mb-0"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
